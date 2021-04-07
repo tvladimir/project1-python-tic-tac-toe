@@ -107,6 +107,7 @@ def checkGameField(gs):
 
     if is_t_ko:
         gs.gameMessage = 'TKO Win !!!'
+        gs.isTKo = True
     return gs
 
 gameState = GameState()
