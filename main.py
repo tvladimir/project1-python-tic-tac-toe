@@ -99,15 +99,14 @@ def checkGameField(gs):
         gs.gameMessage = 'Player Zero Win !!!'
         return gs
 
-    is_t_ko = True
+    gs.isTKo = True
     for i in [x+1 for x in range(3)]:
         for j in [x+1 for x in range(3)]:
             if playField[i][j] == emptyFieldPlace:
-                is_t_ko = False
+                gs.isTKo = False
 
-    if is_t_ko:
+    if gs.isTKo:
         gs.gameMessage = 'TKO Win !!!'
-        gs.isTKo = True
     return gs
 
 gameState = GameState()
