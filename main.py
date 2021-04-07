@@ -22,6 +22,7 @@ playFieldColors = [
     ['\033[93m', '\33[37m', '\33[37m', '\33[37m'],
 ]
 WINCOLOR = '\033[92m'
+DEFCOLOR = '\033[37m'
 
 
 playField = [
@@ -32,7 +33,12 @@ playField = [
 ]
 
 def printField(field):
-    print('\n'.join([' '.join([f'{playFieldColors[j][i]}{cell}' for i,cell in enumerate(row)]) for j,row in enumerate(field)]))
+    print('Enter step with space: example -> 3 3')
+    print()
+    print(f'\n {DEFCOLOR}   |       |       |      |')
+    print(f'\n{DEFCOLOR}    |       |       |      |\n'.join([f'{DEFCOLOR}   |   '.join([f'{playFieldColors[j][i]}{cell}' for i,cell in enumerate(row)])+f'{DEFCOLOR}  |\n'+f'{DEFCOLOR}    |       |       |      |\n----|-------|-------|------|' for j,row in enumerate(field)]))
+    print()
+    print()
 
 def checkGameField(gs):
     for i in [x+1 for x in range(3)]:
@@ -129,7 +135,7 @@ while not (gameState.isSomeOneWin or gameState.isTKo):
                 if was_except:
                     print(f'{FAILCOLOR}Please be careful !!!')
                 print(f'{FAILCOLOR}Entered step not correct !!!')
-            new_step = input('Player X enter your step:' if gameState.isXPlayerStep else 'Player Zero enter your step:')
+            new_step = input('Player X enter your step: ' if gameState.isXPlayerStep else 'Player Zero enter your step: ')
             was_except = False
             playerStep = None
             try:
