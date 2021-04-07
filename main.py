@@ -24,7 +24,7 @@ playFieldColors = [
 WINCOLOR = '\033[92m'
 DEFCOLOR = '\033[37m'
 
-
+3
 playField = [
     [' ', '1', '2', '3'],
     ['1', emptyFieldPlace, emptyFieldPlace, emptyFieldPlace],
@@ -33,10 +33,10 @@ playField = [
 ]
 
 def printField(field):
-    print('Enter step with space: example -> 3 3')
+    print(f'{DEFCOLOR}Enter step with space: example -> 3 3')
     print()
-    print(f'\n {DEFCOLOR}   |       |       |      |')
-    print(f'\n{DEFCOLOR}    |       |       |      |\n'.join([f'{DEFCOLOR}   |   '.join([f'{playFieldColors[j][i]}{cell}' for i,cell in enumerate(row)])+f'{DEFCOLOR}  |\n'+f'{DEFCOLOR}    |       |       |      |\n----|-------|-------|------|' for j,row in enumerate(field)]))
+    print(f'\n {DEFCOLOR}   |       |       |       |')
+    print(f'\n{DEFCOLOR}    |       |       |       |\n'.join([f'{DEFCOLOR}   |   '.join([f'{playFieldColors[j][i]}{cell}' for i,cell in enumerate(row)])+f'{DEFCOLOR}   |\n'+f'{DEFCOLOR}    |       |       |       |\n----|-------|-------|-------|' for j,row in enumerate(field)]))
     print()
     print()
 
@@ -152,5 +152,6 @@ while not (gameState.isSomeOneWin or gameState.isTKo):
 clear_screen()
 printField(playField)
 print('\n', f'{WINCOLOR}{gameState.gameMessage}')
+print(f'{DEFCOLOR} \n\n')
 
 
